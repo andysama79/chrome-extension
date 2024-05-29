@@ -1,10 +1,21 @@
 {
     "manifest_version": 3,
-    "name": "Random Extension",
-    "description": "Basic Chrome Extension",
+    "name": "Reading Time",
+    "description": "Add the reading time to Chrome Extension documentation articles",
     "version": "1.0",
-    "action": {
-        "default_popup": "popup.html",
-        "default_icon": "assets/hello_extensions.png"
-    }
+    "icons": {
+        "16": "assets/icon-16.png",
+        "32": "assets/icon-32.png",
+        "48": "assets/icon-48.png",
+        "128": "assets/icon-128.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://developer.chrome.com/docs/extensions/*",
+                "https://developer.chrome.com/docs/webstore/*"
+            ],
+            "js": ["scripts/content.js"]
+        }
+    ]
 }
