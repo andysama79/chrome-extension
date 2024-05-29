@@ -1,0 +1,10 @@
+{
+    "manifest_version": 3,
+    "name": "Random Extension",
+    "description": "Basic Chrome Extension",
+    "version": "1.0",
+    "action": {
+        "default_popup": "hello.html",
+        "default_icon": "assets/hello_extensions.png"
+    }
+}
