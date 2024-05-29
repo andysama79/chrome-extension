@@ -19,9 +19,10 @@ if (article) {
 
     // support for API reference docs
     const position = article.querySelector('devsite-feature-tooltip');
-    
+    // support for MDN docs
+    const heading = article.querySelector('h1');
     // support for article docs with date
     const date = article.querySelector('time')?.parentNode; // `?.`safely access props that might be null or undefined
 
-    (date ?? position).insertAdjacentElement('afterend', badge);
+    (date ?? position ?? heading).insertAdjacentElement('afterend', badge);
 }
