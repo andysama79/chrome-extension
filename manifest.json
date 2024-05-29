@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "Focus Mode",
+    "name": "Open extension API reference",
     "description": "Enable focus mode on Chrome's official Extensions and Chrome Web Store documentation",
-    "version": "1.0",
+    "version": "1.0.0",
     "action": {
         "default_icon": {
             "16": "assets/icon-16.png",
@@ -14,18 +14,17 @@
     "content_scripts": [
         {
             "matches": [
-                "https://developer.chrome.com/docs/extensions/*",
-                "https://developer.chrome.com/docs/webstore/*",
-                "https://developer.mozilla.org/*",
-                "https://javascript.info/*"
+                "https://developer.chrome.com/docs/extensions/reference/*"
             ],
             "js": ["scripts/content.js"]
         }
     ],
     "background": {
-        "service_worker": "background.js"
+        "service_worker": "service-worker.js",
+        "type": "module"
     },
-    "permissions": ["activeTab", "scripting"],
+    "permissions": ["activeTab", "scripting", "storage", "alarms"],
+    "host_permissions": ["https://extension-tips.glitch.me/*"],
     "commands": {
         "_execute_action": {
             "suggested_key": {
@@ -33,5 +32,9 @@
                 "mac": "Command+B"
             }
         }
+    },
+    "minimum_chrome_version": "102",
+    "omnibox": {
+        "keyword": "api"
     }
 }
