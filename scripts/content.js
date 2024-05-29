@@ -8,7 +8,7 @@ if (article) {
 
     // matchAll returns an iterator, convert to array to get word count
 
-    const wordCount = [...words].length;
+    const wordCount = [...words].length; // varArgs?z
     const readingTime = Math.round(wordCount / 200);
     const badge = document.createElement('p');
 
@@ -18,9 +18,10 @@ if (article) {
     badge.textContent = `⏱️ ${readingTime} min read`;
 
     // support for API reference docs
-    const heading = article.querySelector('h1');
+    const position = article.querySelector('devsite-feature-tooltip');
+    
     // support for article docs with date
     const date = article.querySelector('time')?.parentNode; // `?.`safely access props that might be null or undefined
 
-    (date ?? heading).insertAdjacentElement('afterend', badge);
+    (date ?? position).insertAdjacentElement('afterend', badge);
 }
